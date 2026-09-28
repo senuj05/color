@@ -78,7 +78,4 @@ async function getWeather(){
     document.getElementById("weather").innerText = weatherCondition;
     document.getElementById("wind-speed").innerText = windSpeed;
 
-
-
-
 }
