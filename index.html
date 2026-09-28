@@ -3,21 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Color</title>
 </head>
 <body>
-    <section>
-        <h1>Art Title</h1>
-        <img src="art.jpg" alt="Artwork">
-        <h2>Artist Name</h2>
-        <p>Description of the artwork goes here. It can include details about the medium, inspiration, and any other relevant information.</p>
-    </section>
-    <section>
-        <sidebar>
-            <h3>Weather</h3>
-            <p>Current weather: Sunny, 25°C</p>
-            <p> Location: New York</p>
-        </sidebar>
-    </section>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div id="sidebar-content" class="sidebar-container">
+            <h3>Search Any Location</h3>
+            <input type="text" id="input-city" class="input" placeholder="Enter city Name" />
+            <button id="search-btn" class="button">Search</button>
+            <h3>Weather Information</h3>
+            <p id="city">City</p>
+            <img id="weather-icon" src="" alt="Weather Icon" width="25px" height="25px" />
+            <p><b>Temperature:</b> <span id="temp"></span>°C</p>
+            <p><b>Weather:</b> <span id="weather"></span></p>
+            <p><b>Wind Speed:</b> <span id="wind-speed"></span> km/h</p>
+        </div>
+    </div>
+
+
+    <div id="stage">
+        <div id="painting-wrap">
+            <img id="painting" alt="Artwork" src="src/Pin by Kay Sanchez on Random in 2022 | Cool wallpapers art, Ethereal art, Art wallpaper.jpg">
+        </div>
+        <div id="caption">
+            <p>Caption for the artwork goes here.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+
 </body>
 </html>
