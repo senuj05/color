@@ -50,7 +50,7 @@ async function getWeather(){
     const country = geoData.results[0].country;
     
     // weather API
-    const weatherURL = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
+    const weatherURL = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=auto`;
     const weatherResponse = await fetch(weatherURL);
     const weatherData = await weatherResponse.json();
     console.log(weatherData)
@@ -58,6 +58,7 @@ async function getWeather(){
     const temperature = weatherData.current_weather.temperature;
     const windSpeed = weatherData.current_weather.windspeed;
     const weatherCode = weatherData.current_weather.weathercode;
+    const timezone = weatherData.timezone;
     const isDay = weatherData.current_weather.is_day;
     let [weatherCondition, weatherImage] = weatherCodeMap[weatherCode] || ["Unknown", "cloud.svg"];
 
@@ -73,9 +74,19 @@ async function getWeather(){
         document.getElementById("city").innerText = city;
     }
 
+
     document.getElementById("weather-icon").src = ICON_PATH + weatherImage;
     document.getElementById("temp").innerText = `${temperature}`;
     document.getElementById("weather").innerText = weatherCondition;
     document.getElementById("wind-speed").innerText = windSpeed;
 
+    document.getElementById("local-time-value").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    document.getElementById("new-york-time").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    document.getElementById("london-time").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    document.getElementById("tokyo-time").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    document.getElementById("sydney-time").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    document.getElementById("paris-time").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
 }
+
+

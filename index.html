@@ -20,18 +20,43 @@
             <p><b>temperature:</b> <span id="temp"></span>°C</p>
             <p><b>weather:</b> <span id="weather"></span></p>
             <p><b>wind Speed:</b> <span id="wind-speed"></span> km/h</p>
+            <hr id ="divider" />
+            <h3> LOCAL TIME</h3>
+            <p id="local-time">local time: <span id="local-time-value"></span></p>
+            <h3>OTHER MAJOR CITIES</h3>
+            <ul id="major-cities">
+                <li class="city-btn">New York <span id="new-york-time"></span></li>
+                <li class="city-btn">London <span id="london-time"></span></li>
+                <li class="city-btn">Tokyo <span id="tokyo-time"></span></li>
+                <li class="city-btn">Sydney <span id="sydney-time"></span></li>
+                <li class="city-btn">Paris <span id="paris-time"></span></li>
+            </ul>
         </div>
     </div>
 
 
     <div id="stage">
+        <div id="artwork-title">Artwork Title</div>
         <div id="painting-wrap">
-            <img id="painting" alt="Artwork" src="src/Pin by Kay Sanchez on Random in 2022 | Cool wallpapers art, Ethereal art, Art wallpaper.jpg">
+            <img id="painting" alt="Artwork" referrerpolicy="no-referrer" src="src/Pin by Kay Sanchez on Random in 2022 | Cool wallpapers art, Ethereal art, Art wallpaper.jpg">
         </div>
-        <div id="caption">
-            <p>Caption for the artwork goes here.</p>
+        <div id="artwork-artist">Artist: John Doe</div>
+        <div id="artwork-description">
+            <p>Description of the artwork goes here.</p>
+        </div>
+
+        <div id="navigation-btns">
+            <button id="prev-btn" class="button">Previous</button>
+            <button id="next-btn" class="button">Next</button>
         </div>
     </div>
+    <div id="footer-container">
+        <footer>
+            <hr id="footer-divider" />
+            <p>© 2026 Senuvi Jayasinghe. All rights reserved.</p>
+        </footer>
+    </div>
+
     <script src="script.js"></script>
 
 
