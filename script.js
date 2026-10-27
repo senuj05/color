@@ -82,7 +82,28 @@ async function getWeather(){
     document.getElementById("local-time-value").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 }
 
+//  function to get the current location and display it
+function getCurrentLocation() {
+    navigator.geolocation.getCurrentPosition(async (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
 
+        // reverse geocoding API to get the city name from latitude and longitude
+        const geoURL = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
+        const geoResponse = await fetch(geoURL);
+        const geoData = await geoResponse.json();
+        console.log(geoData)
+
+        const city = geoData.city || geoData.locality;
+        const country = geoData.countryName;
+        document.getElementById("current-location").innerText = `${city}, ${country}`;
+    }, (error) => {
+        // user blocked location access or it's unavailable
+        console.log(error);
+        document.getElementById("current-location").innerText = "Location not available";
+    });
+}
+getCurrentLocation(); // Call the function to get the current location and display it
 
 //  function to get the current time in a specific timezone
 function getTime(zone){
