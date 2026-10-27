@@ -79,14 +79,25 @@ async function getWeather(){
     document.getElementById("temp").innerText = `${temperature}`;
     document.getElementById("weather").innerText = weatherCondition;
     document.getElementById("wind-speed").innerText = windSpeed;
-
     document.getElementById("local-time-value").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    document.getElementById("new-york-time").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    document.getElementById("london-time").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    document.getElementById("tokyo-time").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    document.getElementById("sydney-time").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    document.getElementById("paris-time").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-
 }
 
 
+
+//  function to get the current time in a specific timezone
+function getTime(zone){
+    return new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', timeZone: zone});
+}
+
+function updateCityTimes() {
+    document.getElementById("local-time-value").innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    document.getElementById("new-york-time").innerText = getTime("America/New_York");
+    document.getElementById("london-time").innerText = getTime("Europe/London");
+    document.getElementById("tokyo-time").innerText = getTime("Asia/Tokyo");
+    document.getElementById("sydney-time").innerText = getTime("Australia/Sydney");
+    document.getElementById("paris-time").innerText = getTime("Europe/Paris");
+    document.getElementById("colombo-time").innerText = getTime("Asia/Colombo");
+}
+
+updateCityTimes();
+setInterval(updateCityTimes, 1000); // Update every second
