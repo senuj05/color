@@ -14,15 +14,41 @@
             <h3>SEARCH ANY LOCATION</h3>
             <input type="text" id="input-city" class="input" placeholder="Enter city Name" />
             <button id="search-btn" class="button">Search</button>
+            <p id="search-error"></p>
             <hr id ="divider" />
             <h3>WEATHER INFORMATION</h3>
-            <p id="city">city</p>
-            <div id="temp-img-container">
-                <img id="weather-icon" src="" alt="weather icon" width="25px" height="25px" />
-                <p> <span id="temp"></span>°C</p>
+            <p id="city">Search for a city to see its weather</p>
+
+            <!-- Tabs: each one requests its own data from a different end-point -->
+            <div id="weather-tabs">
+                <button class="tab-btn active" data-tab="current">Current</button>
+                <button class="tab-btn" data-tab="forecast">7-Day Forecast</button>
+                <button class="tab-btn" data-tab="air">Air Quality</button>
             </div>
-            <p><b>weather:</b> <span id="weather"></span></p>
-            <p><b>wind Speed:</b> <span id="wind-speed"></span> km/h</p>
+            <p id="tab-status"></p>
+
+            <!-- Current weather (forecast end-point) -->
+            <div id="current-panel" class="tab-panel">
+                <div id="temp-img-container">
+                    <img id="weather-icon" src="" alt="weather icon" width="25px" height="25px" />
+                    <p> <span id="temp"></span>°C</p>
+                </div>
+                <p><b>weather:</b> <span id="weather"></span></p>
+                <p><b>wind Speed:</b> <span id="wind-speed"></span> km/h</p>
+            </div>
+
+            <!-- 7-day forecast (forecast end-point, daily data) -->
+            <div id="forecast-panel" class="tab-panel" hidden>
+                <ul id="forecast-list"></ul>
+            </div>
+
+            <!-- Air quality (air quality end-point) -->
+            <div id="air-panel" class="tab-panel" hidden>
+                <p><b>US Air Quality Index:</b> <span id="aqi"></span></p>
+                <p><b>Air quality:</b> <span id="aqi-level"></span></p>
+                <p><b>PM2.5:</b> <span id="pm25"></span> μg/m³</p>
+                <p><b>PM10:</b> <span id="pm10"></span> μg/m³</p>
+            </div>
             <hr id ="divider" />
             <h3> LOCAL TIME</h3>
             <p id="local-time">local time: <span id="local-time-value"></span></p>
@@ -47,7 +73,7 @@
         <div id="painting-wrap">
             <img id="painting" alt="Artwork" referrerpolicy="no-referrer" src="src/waterlilies.png">
         </div>
-        <div id="artwork-artist">Artist: Claude Monet (French, 1840–1926)</div>
+        <div id="artwork-artist">Artist: Claude Monet (French, 1840-1926)</div>
         <div id="artwork-description">
             <p>Little did Claude Monet know that the water garden he created three years after buying his Giverny, France, property in 1890 would become his primary inspiration over the next two and a half decades. These paintings, numbering around 250, mark Monet’s artistic journey from more straightforward depictions of the pond spanned by the wooden Japanese bridge to the monumental and near-abstract series on the water lily theme he made in preparation for his murals at the Musée de l’Orangerie in Paris between 1914 and 1926.</p>
             <p><b>Medium:</b> Oil on canvas &middot; <b>Dimensions:</b> 89.9 × 94.1 cm<br>
